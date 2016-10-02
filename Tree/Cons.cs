@@ -1,6 +1,7 @@
 // Cons -- Parse tree node class for representing a Cons node
 
 using System;
+using Tokens;
 
 namespace Tree
 {
@@ -16,7 +17,8 @@ namespace Tree
             cdr = d;
             parseList();
         }
-    
+        
+
         // parseList() `parses' special forms, constructs an appropriate
         // object of a subclass of Special, and stores a pointer to that
         // object in variable form.  It would be possible to fully parse
@@ -30,10 +32,33 @@ namespace Tree
         {
             // TODO: implement this function and any helper functions
             // you might need.
-               
+            if(car.isSymbol() == true)
+            {
+                
+            }
 
         }
- 
+        public override Node getCar() {
+            return car;
+        }
+        public override Node getCdr() {
+            return cdr;
+        }
+        public override void setCar(Node a) {
+            car = a;
+        }
+        public override void setCdr(Node d) {
+            cdr = d;
+        }
+       
+        public override bool isPair()
+        {
+            if (car != null && cdr != null)
+                return true;
+            else
+                return false;
+        }
+
         public override void print(int n)
         {
             form.print(this, n, false);

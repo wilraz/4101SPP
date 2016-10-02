@@ -32,6 +32,8 @@ namespace Tree
         // evaluating them, we need some helper functions that test
         // the type of a node and that extract some information.
 
+        //public virtual string getName() { return null; }
+
         // TODO: implement these in the appropriate subclasses to return true.
         public virtual bool isBool()   { return false; }  // BoolLit
         public virtual bool isNumber() { return false; }  // IntLit

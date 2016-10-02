@@ -19,9 +19,9 @@ namespace Tree
         }
 
         public override void print(int n, bool p) {
-	    // There got to be a more efficient way to print n spaces.
-	    for (int i = 0; i < n; i++)
-                Console.Write(" ");
+            // There got to be a more efficient way to print n spaces.
+            String str = new string(' ', n);
+            Console.Write(str);
 
             if (p)
                 Console.WriteLine(")");

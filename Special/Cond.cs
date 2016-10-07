@@ -12,8 +12,10 @@ namespace Tree
 	public Cond() { }
 
         public override void print(Node t, int n, bool p)
-        { 
+        {
             // TODO: Implement this function.
+            // n -= 4;
+            Console.Write("")
         }
     }
 }

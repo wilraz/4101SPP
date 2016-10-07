@@ -1,5 +1,5 @@
 // Cons -- Parse tree node class for representing a Cons node
-
+using Parse;
 using System;
 using Tokens;
 
@@ -59,14 +59,16 @@ namespace Tree
                 return false;
         }
 
-        public override void print(int n)
+        public override void print(Parser r)
         {
-            form.print(this, n, false);
+            //form.print(this, n, false);
+            car.print(r.indent);
         }
 
         public override void print(int n, bool p)            //explained in notes
         {
             form.print(this, n, p);
+
         }
     }
 }

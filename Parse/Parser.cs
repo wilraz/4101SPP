@@ -43,7 +43,7 @@ namespace Parse
 	
         private Scanner scanner;
         public Node car, cdr;
-        public int parenCount = 0, indent = 0;
+        public int parenCount = 0, indent = 0, leoDecaprio = 0;   //leoDecaprio = tempParenCt
 
         public Parser(Scanner s) { scanner = s; }
   
@@ -51,6 +51,11 @@ namespace Parse
         {
             //get tokens from Scanner.cs
             Token t = scanner.getNextToken();
+
+            if (t == null)                                 
+            {
+                return null;
+            }
 
             if (t.getType() == TokenType.LPAREN)
             {
@@ -75,12 +80,50 @@ namespace Parse
             }
             else if (t.getType() == TokenType.IDENT)
             {
-                Ident car = new Ident(t.getName());
+                if (t.getName() == "define")
+                {
+                    indent += 4;
+                    leoDecaprio = parenCount;
+                    Define car = new Define();
+                }
+                else if (t.getName() == "cond")
+                {
+                    indent += 4;
+                    leoDecaprio = parenCount;
+                    Cond car = new Cond();
+                }
+                else if (t.getName() == "if")
+                {
+                    indent += 4;
+                    leoDecaprio = parenCount;
+                    If car = new If();
+                }
+                else if (t.getName() == "lambda")
+                {
+                    indent += 4;
+                    leoDecaprio = parenCount;
+                    Lambda car = new Lambda();
+                }
+                else if (t.getName() == "let")
+                {
+                    indent += 4;
+                    leoDecaprio = parenCount;
+                    Let car = new Let();
+                }
+                else if (t.getName() == "set")
+                {
+                    indent += 4;
+                    leoDecaprio = parenCount;
+                    Set car = new Set();
+                }
+                else
+                {
+                    Ident car = new Ident(t.getName());
+                }
             }
-            else if (t.getType() == TokenType.QUOTE)
+            else if (t.getType() == TokenType.QUOTE)      
             {
                 Quote car = new Quote(scanner);
-                Nil cdr = new Nil();
             }
             else
             {
@@ -88,8 +131,9 @@ namespace Parse
             }
 
             ////special cases here
-            
-                
+
+            ////String str = new string(' ', n);           //handle indents in print function
+            ////Console.Write(str);
 
             // TODO: write code for parsing an exp
             //if (token == LPAREN)
@@ -114,6 +158,11 @@ namespace Parse
             //   make A PAIR of calls to exp  -> exp-op-exp -> include the DOT token  
             Token t = scanner.getNextToken();
 
+            if (t == null)
+            {
+                return null;
+            }
+
             if (t.getType() == TokenType.RPAREN)
             {
                 cdr = new Nil();
@@ -134,7 +183,7 @@ namespace Parse
                 Cons c = new Cons(car, cdr);
                 return c;
             } 
-            return null;                                   //unreachable code
+            //return null;                           //unreachable code
         }
     }
 }

@@ -20,8 +20,6 @@ namespace Tree
         }
         public override void print(int n)
         {
-            String str = new string(' ', n);
-            Console.Write(str);
 
             Console.WriteLine(intVal);
         }

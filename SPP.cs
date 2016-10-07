@@ -50,12 +50,12 @@ public class SPP
         // Create parser
         Parser parser = new Parser(scanner);
         Node root;
-
+      
         // Parse and pretty-print each input expression
         root = parser.parseExp();
         while (root != null) 
         {
-            root.print(0);
+            root.print(parser);
             root = parser.parseExp();
         }
 

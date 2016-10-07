@@ -1,5 +1,6 @@
 // Nil -- Parse tree node class for representing the empty list
 
+using Parse;
 using System;
 
 namespace Tree
@@ -18,15 +19,23 @@ namespace Tree
             print(n, false);
         }
 
-        public override void print(int n, bool p) {
+        public override void print(int n, bool p, Parser r) {
             // There got to be a more efficient way to print n spaces.
-            String str = new string(' ', n);
-            Console.Write(str);
+            
 
             if (p)
-                Console.WriteLine(")");
-            else
-                Console.WriteLine("()");
+                Console.Write(")");
+            //else
+            //    Console.WriteLine("()");
+
+            if (r.parenCount < r.leoDecaprio)       // Go back and pass parser to this thing
+            {
+                Console.WriteLine();
+
+                String str = new string(' ', n);    // Indentation
+                Console.Write(str);
+            }
+
         }
     }
 }

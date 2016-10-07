@@ -1,6 +1,7 @@
 // Node -- Base class for parse tree node objects
-
+using Parse;
 namespace Tree
+    
 {
     public class Node
     {
@@ -27,7 +28,14 @@ namespace Tree
         {
             print(n);
         }
+        public virtual void print(Parser r)
+        {
 
+        }
+        public virtual void print(int n, bool p, Parser r)
+        {
+            print(n);
+        }
         // For parsing Cons nodes, for printing trees, and later for
         // evaluating them, we need some helper functions that test
         // the type of a node and that extract some information.

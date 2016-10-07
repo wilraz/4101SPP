@@ -14,6 +14,12 @@ namespace Tree
         public override void print(Node t, int n, bool p)
         {
             // TODO: Implement this function.
+            String str = new string(' ', n);
+            Console.Write(str);
+
+            if (p)
+                Console.WriteLine("(");
+         
         }
     }
 }

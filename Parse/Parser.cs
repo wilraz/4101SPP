@@ -42,7 +42,7 @@ namespace Parse
     public class Parser {
 	
         private Scanner scanner;
-        public Node car, cdr;
+        //public Node car, cdr;
         public int parenCount = 0, indent = 0, leoDecaprio = 0;   //leoDecaprio = tempParenCt
 
         public Parser(Scanner s) { scanner = s; }
@@ -59,7 +59,7 @@ namespace Parse
 
             if (t.getType() == TokenType.LPAREN)
             {
-                cdr = parseRest();                              // parseRest
+                Node cdr = parseRest();                              // parseRest
                 parenCount++;
                 StringLit car = new StringLit(new Begin());
             }
@@ -90,42 +90,49 @@ namespace Parse
                     indent += 4;
                     leoDecaprio = parenCount;
                     StringLit car = new StringLit(new Define());
+                    return car;
                 }
                 else if (t.getName() == "cond")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
                     StringLit car = new StringLit(new Cond());
+                    return car;
                 }
                 else if (t.getName() == "if")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
                     StringLit car = new StringLit(new If());
+                    return car;
                 }
                 else if (t.getName() == "lambda")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
                     StringLit car = new StringLit(new Lambda());
+                    return car;
                 }
                 else if (t.getName() == "let")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
                     StringLit car = new StringLit(new Let());
+                    return car;
                 }
                 else if (t.getName() == "set")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
                     StringLit car = new StringLit(new Set());
+                    return car;
                 }
                 else
                 {
                     Ident car = new Ident(t.getName());
+                    return car;
                 }
-                return car;
+                
             }
             else if (t.getType() == TokenType.QUOTE)      //dis shit be broke
             {
@@ -174,7 +181,7 @@ namespace Parse
 
             if (t.getType() == TokenType.RPAREN)
             {
-                cdr = new Nil();
+                Node cdr = new Nil();
                 parenCount--;
 
                 if (parenCount < 0)  {              //check for matching parens
@@ -184,11 +191,11 @@ namespace Parse
             }
             else
             {
-                car = parseExp();
+                Node car = parseExp();
                 while (t.getType() == TokenType.DOT) {  //check for a dot 
                     car = parseExp();
                     }
-                cdr = parseRest();
+                Node cdr = parseRest();
                 Cons c = new Cons(car, cdr);
                 return c;
             } 

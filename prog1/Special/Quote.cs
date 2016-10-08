@@ -19,13 +19,17 @@ namespace Tree
                 str2 = scan.ToString();
                 String.Concat(str, str2);
             }
-
+            String.Concat("'", str);
+        }
+        public string getString()
+        {
+            return str;
         }
 
         public override void print(Node t, int n, bool p)
         {
             // TODO: Implement this function.
-            Console.Write("'" + str + ")");
+            Console.Write(str + ")");
         }
     }
 }

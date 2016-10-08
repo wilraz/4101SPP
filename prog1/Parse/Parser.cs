@@ -61,22 +61,27 @@ namespace Parse
             {
                 cdr = parseRest();                              // parseRest
                 parenCount++;
+                StringLit car = new StringLit(new Begin());
             }
             else if (t.getType() == TokenType.INT)
             {
                 IntLit car = new IntLit(t.getIntVal());
+                return car;
             }
             else if (t.getType() == TokenType.STRING)
             {
                 StringLit car = new StringLit(t.getStringVal());
+                return car;
             }
             else if (t.getType() == TokenType.TRUE)
             {
                 BoolLit car = new BoolLit(true);
+                return car;
             }
             else if (t.getType() == TokenType.FALSE)
             {
                 BoolLit car = new BoolLit(false);
+                return car;
             }
             else if (t.getType() == TokenType.IDENT)
             {
@@ -84,50 +89,54 @@ namespace Parse
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
-                    Define car = new Define();
+                    StringLit car = new StringLit(new Define());
                 }
                 else if (t.getName() == "cond")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
-                    Cond car = new Cond();
+                    StringLit car = new StringLit(new Cond());
                 }
                 else if (t.getName() == "if")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
-                    If car = new If();
+                    StringLit car = new StringLit(new If());
                 }
                 else if (t.getName() == "lambda")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
-                    Lambda car = new Lambda();
+                    StringLit car = new StringLit(new Lambda());
                 }
                 else if (t.getName() == "let")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
-                    Let car = new Let();
+                    StringLit car = new StringLit(new Let());
                 }
                 else if (t.getName() == "set")
                 {
                     indent += 4;
                     leoDecaprio = parenCount;
-                    Set car = new Set();
+                    StringLit car = new StringLit(new Set());
                 }
                 else
                 {
                     Ident car = new Ident(t.getName());
                 }
+                return car;
             }
-            else if (t.getType() == TokenType.QUOTE)      
+            else if (t.getType() == TokenType.QUOTE)      //dis shit be broke
             {
-                Quote car = new Quote(scanner);
+                Quote q = new Quote(scanner);
+                StringLit car = new StringLit(q);
+                return car;
             }
             else
             {
                 Nil car = new Nil();
+                return car;
             }
 
             ////special cases here

@@ -62,6 +62,8 @@ namespace Parse
                 Node cdr = parseRest();                              // parseRest
                 parenCount++;
                 StringLit car = new StringLit(new Begin());
+                Cons con = new Cons(car, cdr);
+                return con;
             }
             else if (t.getType() == TokenType.INT)
             {

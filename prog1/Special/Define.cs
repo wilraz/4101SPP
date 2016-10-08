@@ -1,17 +1,17 @@
-// Regular -- Parse tree node strategy for printing regular lists
-
-// Unused in our implementation - handled elsewhere
+// Define -- Parse tree node strategy for printing the special form define
 
 using System;
 
+
 namespace Tree
 {
-    public class Regular : Special
+    public class Define : Special
     {
         // TODO: Add any fields needed.
-    
+
+
         // TODO: Add an appropriate constructor.
-        public Regular() { }
+	public Define() { }
 
         public override void print(Node t, int n, bool p)
         {

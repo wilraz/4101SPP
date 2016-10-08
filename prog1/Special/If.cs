@@ -1,17 +1,15 @@
-// Regular -- Parse tree node strategy for printing regular lists
-
-// Unused in our implementation - handled elsewhere
+// If -- Parse tree node strategy for printing the special form if
 
 using System;
 
 namespace Tree
 {
-    public class Regular : Special
+    public class If : Special
     {
         // TODO: Add any fields needed.
-    
+ 
         // TODO: Add an appropriate constructor.
-        public Regular() { }
+	public If() { }
 
         public override void print(Node t, int n, bool p)
         {
@@ -19,5 +17,4 @@ namespace Tree
         }
     }
 }
-
 

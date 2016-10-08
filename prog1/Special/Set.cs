@@ -1,23 +1,20 @@
-// Regular -- Parse tree node strategy for printing regular lists
-
-// Unused in our implementation - handled elsewhere
+// Set -- Parse tree node strategy for printing the special form set!
 
 using System;
 
 namespace Tree
 {
-    public class Regular : Special
+    public class Set : Special
     {
         // TODO: Add any fields needed.
-    
+ 
         // TODO: Add an appropriate constructor.
-        public Regular() { }
-
+	public Set() { }
+	
         public override void print(Node t, int n, bool p)
         {
             // TODO: Implement this function.
         }
     }
 }
-
 

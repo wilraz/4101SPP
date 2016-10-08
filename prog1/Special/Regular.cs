@@ -1,7 +1,5 @@
 // Regular -- Parse tree node strategy for printing regular lists
 
-// Unused in our implementation - handled elsewhere
-
 using System;
 
 namespace Tree

@@ -1,21 +1,21 @@
-// Regular -- Parse tree node strategy for printing regular lists
-
-// Unused in our implementation - handled elsewhere
+// Cond -- Parse tree node strategy for printing the special form cond
 
 using System;
 
 namespace Tree
 {
-    public class Regular : Special
+    public class Cond : Special
     {
         // TODO: Add any fields needed.
-    
+
         // TODO: Add an appropriate constructor.
-        public Regular() { }
+	public Cond() { }
 
         public override void print(Node t, int n, bool p)
         {
             // TODO: Implement this function.
+            // n -= 4;
+            Console.Write("");
         }
     }
 }

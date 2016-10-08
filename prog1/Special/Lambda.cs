@@ -1,23 +1,20 @@
-// Regular -- Parse tree node strategy for printing regular lists
-
-// Unused in our implementation - handled elsewhere
+// Lambda -- Parse tree node strategy for printing the special form lambda
 
 using System;
 
 namespace Tree
 {
-    public class Regular : Special
+    public class Lambda : Special
     {
         // TODO: Add any fields needed.
-    
+
         // TODO: Add an appropriate constructor.
-        public Regular() { }
+	public Lambda() { }
 
         public override void print(Node t, int n, bool p)
         {
             // TODO: Implement this function.
-        }
+  	}
     }
 }
-
 

@@ -165,7 +165,7 @@ namespace Parse
             //else if (token == IDENT)
             //else {give error message}
 
-            return null;
+        
         }
   
         protected Node parseRest()

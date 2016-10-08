@@ -9,7 +9,7 @@ namespace Tree
     public class Quote : Special
     {
         // TODO: Add any fields needed.
-        private String str, str2;
+        private String str = "'", str2;
         private Scanner scan;
         
         // TODO: Add an appropriate constructor.
@@ -19,7 +19,6 @@ namespace Tree
                 str2 = scan.ToString();
                 String.Concat(str, str2);
             }
-            String.Concat("'", str);
         }
         public string getString()
         {

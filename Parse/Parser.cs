@@ -175,14 +175,14 @@ namespace Parse
             //if (token == RPAREN) end;
             //else if ( something )
             //   make A PAIR of calls to exp  -> exp-op-exp -> include the DOT token  
-            Token t = tok;
+            
 
-            if (t == null)
+            if (tok == null)
             {
                 return null;
             }
 
-            if (t.getType() == TokenType.RPAREN)
+            if (tok.getType() == TokenType.RPAREN)
             {
                 Node cdr = new Nil();
                 parenCount--;
@@ -196,10 +196,10 @@ namespace Parse
             {
                 Node car = parseExp();
                 
-                while (t.getType() == TokenType.DOT) {  //check for a dot 
+                while (tok.getType() == TokenType.DOT) {  //check for a dot 
                     car = parseExp();
                 }
-                Node cdr = parseRest(t);
+                Node cdr = parseRest(tok);
                 Cons c = new Cons(car, cdr);
                 return c;
             } 

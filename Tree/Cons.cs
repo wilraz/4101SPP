@@ -63,6 +63,7 @@ namespace Tree
         {
             //form.print(this, n, false);
             car.print(r.indent);
+            cdr.print(r.indent);
         }
 
         public override void print(int n, bool p)            //explained in notes

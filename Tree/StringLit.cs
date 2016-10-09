@@ -7,11 +7,11 @@ namespace Tree
     public class StringLit : Node
     {
         private string stringVal;
-        private bool isRealStr = false;
+        private int valType = 0;        // 1 = normal String, 2 = RPAREN, 0 = anything else
          public StringLit(string s)
         {
             stringVal = s;
-            isRealStr = true;
+            valType = 1;
         }
 
         // To save any Special case as a String node
@@ -60,12 +60,15 @@ namespace Tree
         }
         public override void print(int n)
         {
-            // There got to be a more efficient way to print n spaces.
-            if (isRealStr == true)
+            if (valType == 1)                  //For printing Strings
             {
                 Console.Write("\"" + stringVal + "\"");
             }
-            else
+            else if (valType == 2) {
+                Console.Write(stringVal);
+                String str = new string(' ', n);
+            }
+            else                                    //For printing Special cases
             {
                 Console.Write(stringVal);
             }

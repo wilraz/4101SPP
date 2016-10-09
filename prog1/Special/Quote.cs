@@ -9,7 +9,7 @@ namespace Tree
     public class Quote : Special
     {
         // TODO: Add any fields needed.
-        private String str = "'", str2;
+        private string str = "'", str2;            //altered String to string
         private Scanner scan;
         
         // TODO: Add an appropriate constructor.

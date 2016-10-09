@@ -59,9 +59,9 @@ namespace Parse
 
             if (t.getType() == TokenType.LPAREN)
             {
-                Node cdr = parseRest();                              // parseRest
-                parenCount++;
+                parenCount++;           
                 StringLit car = new StringLit(new Begin());
+                Node cdr = parseRest();                              // parseRest    
                 Cons con = new Cons(car, cdr);
                 return con;
             }
@@ -185,7 +185,6 @@ namespace Parse
             {
                 Node cdr = new Nil();
                 parenCount--;
-
                 if (parenCount < 0)  {              //check for matching parens
                     Console.Error.WriteLine("ERROR: Unmatched Parenthesese");
                 }

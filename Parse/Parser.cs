@@ -59,9 +59,10 @@ namespace Parse
 
             if (t.getType() == TokenType.LPAREN)
             {
-                parenCount++;           
                 StringLit car = new StringLit(new Begin());
-                Node cdr = parseRest();                              // parseRest    
+                Node cdr = parseRest(t);                              // parseRest
+                parenCount++;
+               
                 Cons con = new Cons(car, cdr);
                 return con;
             }
@@ -168,13 +169,13 @@ namespace Parse
         
         }
   
-        protected Node parseRest()
+        protected Node parseRest(Token tok)
         {
             // TODO: write code for parsing a rest
             //if (token == RPAREN) end;
             //else if ( something )
             //   make A PAIR of calls to exp  -> exp-op-exp -> include the DOT token  
-            Token t = scanner.getNextToken();
+            Token t = tok;
 
             if (t == null)
             {
@@ -185,6 +186,7 @@ namespace Parse
             {
                 Node cdr = new Nil();
                 parenCount--;
+
                 if (parenCount < 0)  {              //check for matching parens
                     Console.Error.WriteLine("ERROR: Unmatched Parenthesese");
                 }
@@ -193,10 +195,11 @@ namespace Parse
             else
             {
                 Node car = parseExp();
+                
                 while (t.getType() == TokenType.DOT) {  //check for a dot 
                     car = parseExp();
-                    }
-                Node cdr = parseRest();
+                }
+                Node cdr = parseRest(t);
                 Cons c = new Cons(car, cdr);
                 return c;
             } 
